@@ -397,13 +397,18 @@ AjaxPro.Request.prototype = {
 		return r;
 	},
 	timeout: function() {
-		this.duration = new Date().getTime() - this.__start;
-		var r = this.onTimeout(this.duration, this);
-		if(typeof r == "undefined" || r != false) {
-			this.abort();
-		} else {
-			this.timeoutTimer = setTimeout(this.timeout.bind(this), AjaxPro.timeoutPeriod);
-		}
+        this.duration = new Date().getTime() - this.__start;
+        try {
+            var r = this.onTimeout(this.duration, this);
+            if (typeof r == "undefined" || r != false) {
+                this.abort();
+            } else {
+                this.timeoutTimer = setTimeout(this.timeout.bind(this), AjaxPro.timeoutPeriod);
+            }
+        } catch (e) {
+
+        }
+		
 	},
 	invoke: function(method, args, callback, context) {
 		this.__start = new Date().getTime();
