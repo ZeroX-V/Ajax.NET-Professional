@@ -15,7 +15,7 @@ The framework will create proxy JavaScript classes that are used on client-side 
 <configuration>
   <system.web>
     <httpHandlers>
-      <add verb="POST,GET" path="ajaxpro/*.ashx" type="AjaxPro.AjaxHandlerFactory, AjaxPro.2"/>
+      <add verb="POST,GET" path="ajaxpro/*.ashx" type="AjaxPro.AjaxHandlerFactory, AjaxPro"/>
     </httpHandlers>
     [...]
   </system.web>
